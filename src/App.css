@@ -2,6 +2,6 @@
   display: flex;
 }
 
-.expenses-header :nth-child(1) {
+.expenses-header :nth-child( 1 ) {
   margin-right: 5px;
 }

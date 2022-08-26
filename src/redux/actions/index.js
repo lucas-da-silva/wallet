@@ -1,3 +1,5 @@
+import getApi from '../../services';
+
 export const REQUESTING = 'REQUESTING';
 export const FETCH_API_SUCCESS = 'FETCH_API_SUCCESS';
 export const FETCH_API_ERROR = 'FETCH_API_ERROR';
@@ -25,9 +27,8 @@ const fetchApiError = (error) => ({
 export const fetchApi = () => async (dispatch) => {
   dispatch(requesting());
   try {
-    const data = await fetch('https://jsonplaceholder.typicode.com/users');
-    const json = await data.json();
-    dispatch(fetchApiSuccess(json));
+    const data = await getApi();
+    dispatch(fetchApiSuccess(data));
   } catch (error) {
     dispatch(fetchApiError(error));
   }
