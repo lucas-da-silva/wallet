@@ -13,7 +13,6 @@ class Wallet extends React.Component {
 
   render() {
     const { isLoading } = this.props;
-
     return (
       <section>
         <Header />

@@ -3,5 +3,9 @@
 }
 
 .expenses-header :nth-child( 1 ) {
-  margin-right: 5px;
+  margin-right: 3px;
+}
+
+.expenses-header :nth-child( 2 ) {
+  margin-right: 4px;
 }
