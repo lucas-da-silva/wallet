@@ -12,25 +12,17 @@ class Wallet extends React.Component {
   }
 
   render() {
-    const { isLoading } = this.props;
     return (
       <section>
         <Header />
-        {
-          isLoading ? <h1>Carregando...</h1> : <WalletForm />
-        }
+        <WalletForm />
       </section>
     );
   }
 }
 
-const mapStateToProps = (state) => ({
-  isLoading: state.wallet.isFetching,
-});
-
 Wallet.propTypes = {
   dispatch: PropTypes.func.isRequired,
-  isLoading: PropTypes.bool.isRequired,
 };
 
-export default connect(mapStateToProps)(Wallet);
+export default connect()(Wallet);
