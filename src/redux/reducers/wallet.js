@@ -1,5 +1,5 @@
 // Esse reducer será responsável por tratar o todas as informações relacionadas as despesas
-import { ADD_EXPENSE, FETCH_API_SUCCESS, REQUESTING } from '../actions';
+import { ADD_EXPENSE, FETCH_API_SUCCESS, REMOVE_EXPENSE, REQUESTING } from '../actions';
 
 const INITIAL_STATE = {
   currencies: [], // array de string
@@ -8,6 +8,12 @@ const INITIAL_STATE = {
   idToEdit: 0,
   ask: 0, // valor numérico que armazena o id da despesa que esta sendo editada
   isFetching: false,
+};
+
+const removeAsk = (expense) => {
+  const { value, currency, exchangeRates } = expense;
+  const exchangeRate = exchangeRates[currency].ask;
+  return (value * exchangeRate).toFixed(2);
 };
 
 const wallet = (state = INITIAL_STATE, action) => {
@@ -29,6 +35,12 @@ const wallet = (state = INITIAL_STATE, action) => {
       expenses: [...state.expenses, action.expense],
       ask: state.ask + action.ask,
       isFetching: false,
+    };
+  case REMOVE_EXPENSE:
+    return {
+      ...state,
+      expenses: state.expenses.filter(({ id }) => id !== action.id),
+      ask: state.ask - (removeAsk(state.expenses.find(({ id }) => id === action.id))),
     };
   default:
     return {

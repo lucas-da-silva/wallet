@@ -1,8 +1,14 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { removeExpense } from '../redux/actions';
 
 class Table extends Component {
+  deleteExpense = (id) => {
+    const { dispatch } = this.props;
+    dispatch(removeExpense(id));
+  };
+
   render() {
     const { expenses } = this.props;
     return (
@@ -26,8 +32,7 @@ class Table extends Component {
               expenses && expenses.map(({
                 id, description, tag, method, value, currency, exchangeRates,
               }) => {
-                const convertedCurrency = Object.values(exchangeRates)
-                  .find(({ code }) => code === currency);
+                const convertedCurrency = exchangeRates[currency];
                 const exchangeRate = parseFloat(convertedCurrency.ask).toFixed(2);
                 const convertedValue = (value * convertedCurrency.ask).toFixed(2);
                 return (
@@ -40,7 +45,16 @@ class Table extends Component {
                     <td>{exchangeRate}</td>
                     <td>{convertedValue}</td>
                     <td>Real</td>
-                    <td>Editar/Excluir</td>
+                    <td>
+                      <button type="button">Editar</button>
+                      <button
+                        type="button"
+                        data-testid="delete-btn"
+                        onClick={ () => this.deleteExpense(id) }
+                      >
+                        Excluir
+                      </button>
+                    </td>
                   </tr>
                 );
               })
@@ -57,6 +71,7 @@ const mapStateToProps = ({ wallet }) => ({
 });
 
 Table.propTypes = {
+  dispatch: PropTypes.func.isRequired,
   expenses: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
 };
 
