@@ -5,6 +5,8 @@ export const FETCH_API_SUCCESS = 'FETCH_API_SUCCESS';
 export const FETCH_API_ERROR = 'FETCH_API_ERROR';
 export const EMAIL_CHANGED = 'EMAIL_CHANGED';
 export const ADD_EXPENSE = 'ADD_EXPENSE';
+export const EDIT_EXPENSE = 'EDIT_EXPENSE';
+export const FINESH_EDIT = 'FINESH_EDIT';
 export const REMOVE_EXPENSE = 'REMOVE_EXPENSE';
 
 export const emailChange = (email) => ({
@@ -14,6 +16,17 @@ export const emailChange = (email) => ({
 
 export const addExpense = (expense, ask) => ({
   type: ADD_EXPENSE,
+  expense,
+  ask,
+});
+
+export const editExpense = (id) => ({
+  type: EDIT_EXPENSE,
+  id,
+});
+
+export const fineshEditForm = (expense, ask) => ({
+  type: FINESH_EDIT,
   expense,
   ask,
 });
