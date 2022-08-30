@@ -2,16 +2,14 @@ import {
   ADD_EXPENSE,
   EDIT_EXPENSE,
   FETCH_API_SUCCESS, FINESH_EDIT, REMOVE_EXPENSE,
-  REQUESTING,
 } from '../actions';
 
 const INITIAL_STATE = {
   currencies: [],
   expenses: [],
-  editor: false, // valor booleano que indica de uma despesa está sendo editada
-  idToEdit: 0, // valor numérico que armazena o id da despesa que esta sendo editada
+  editor: false,
+  idToEdit: 0,
   ask: 0,
-  isFetching: false,
 };
 
 const removeAsk = (expense) => {
@@ -22,11 +20,6 @@ const removeAsk = (expense) => {
 
 const wallet = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-  case REQUESTING:
-    return {
-      ...state,
-      isFetching: true,
-    };
   case FETCH_API_SUCCESS:
     return {
       ...state,
