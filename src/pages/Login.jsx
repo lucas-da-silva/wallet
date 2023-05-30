@@ -1,10 +1,12 @@
+import { faSackDollar } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
 import { emailChange } from '../redux/actions';
+import '../styles/Login.css';
 
 const MINIMUM_CHARACTERES = 5;
-
 class Login extends React.Component {
   state = {
     emailInput: '',
@@ -35,23 +37,35 @@ class Login extends React.Component {
   render() {
     const { isDisabled } = this.state;
     return (
-      <section>
-        <form onSubmit={ this.submitForm }>
+      <section className="login-form-container">
+        <form className="login-form" onSubmit={ this.submitForm }>
+          <div className="title-login-form">
+            <h1>TrybeWallet</h1>
+            <FontAwesomeIcon className="icon-sack-dollar" icon={ faSackDollar } />
+          </div>
           <input
             type="text"
             name="emailInput"
+            className="form-control"
             data-testid="email-input"
             placeholder="Email"
             onChange={ this.handleChange }
           />
           <input
             type="password"
+            className="form-control"
             name="passwordInput"
             data-testid="password-input"
             placeholder="Senha"
             onChange={ this.handleChange }
           />
-          <button disabled={ isDisabled } type="submit">Entrar</button>
+          <button
+            className={ isDisabled ? 'btn btn-secondary' : 'btn btn-primary' }
+            disabled={ isDisabled }
+            type="submit"
+          >
+            Entrar
+          </button>
         </form>
       </section>
     );
