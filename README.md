@@ -10,7 +10,7 @@ Aplicação para controle de gastos pessoais. O usuário pode adicionar, remover
 - [Redux](https://redux.js.org/) - Biblioteca JavaScript para gerenciar o estado da aplicação
 - [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/) - Biblioteca JavaScript para testes de componentes React
 - [Jest](https://jestjs.io/) - Framework de testes em JavaScript
-- [API de Cotações de Moedas](https://docs.awesomeapi.com.br/api-de-moedas) - API para cotações de moedas
+- [Bootstrap](https://getbootstrap.com/) - Framework CSS para criação de interfaces
 
 ## Funcionalidades
 
