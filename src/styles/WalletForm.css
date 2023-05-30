@@ -1,0 +1,35 @@
+.wallet-form-container {
+  background-color: rgb(27, 27, 27);
+  display: flex;
+  flex-direction: column;
+  height: 100px;
+  justify-content: center;
+}
+
+.wallet-form {
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+  padding: 1.5rem;
+}
+
+.value-input {
+  text-align: center;
+  width: 200px;
+}
+
+.currency-input {
+  width: 185px;
+}
+
+.method-input {
+  width: 440px;
+}
+
+.tag-input {
+  width: 200px;
+}
+
+.description-input {
+  width: 300px;
+}
