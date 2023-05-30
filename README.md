@@ -46,7 +46,7 @@ $PROJECT_ROOT
 ├── public
 |   # Código fonte da aplicação
 └── src
-    |   # Arquivos de React componentes
+    |   # Arquivos de componentes React
     ├── components
     |   # Arquivos de páginas
     ├── pages
