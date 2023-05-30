@@ -1,0 +1,56 @@
+.header-container {
+  align-items: center;
+  background-color: rgb(239, 239, 239);
+  border-bottom: 1px solid #e5e5e5;
+  display: flex;
+  justify-content: space-between;
+  padding: 1.2rem;
+}
+
+.title-header {
+  display: flex;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.title-header h3 {
+  margin: 7px 0 0 0.5rem;
+}
+
+.icon-sack-dollar {
+  width: 25px;
+}
+
+.email-total-header {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 1rem;
+  width: 500px;
+}
+
+.expenses-header {
+  align-items: center;
+  display: flex;
+  font-size: 1.2rem;
+  font-weight: 500;
+  justify-content: space-between;
+  margin-left: 1rem;
+}
+
+.expenses-header p {
+  margin: 2px 0 0;
+}
+
+.expenses-header :nth-child( 2 ) {
+  margin-left: 5px;
+}
+
+.expenses-header :nth-child( 3 ) {
+  margin-left: 3px;
+}
+
+.email-header {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 2px 1rem 0 0;
+}
