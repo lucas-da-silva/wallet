@@ -6,12 +6,14 @@ import './styles/App.css';
 
 function App() {
   return (
-    <section>
-      <Switch>
-        <Route exact path="/" render={ (props) => <Login { ...props } /> } />
-        <Route exact path="/carteira" component={ Wallet } />
-      </Switch>
-    </section>
+    <Switch>
+      <Route exact path="/carteira" component={ Wallet } />
+      <Route
+        exact
+        path="/"
+        render={ (props) => <Login { ...props } /> }
+      />
+    </Switch>
   );
 }
 
