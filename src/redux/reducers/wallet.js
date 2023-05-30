@@ -1,7 +1,6 @@
 import {
-  ADD_EXPENSE,
-  EDIT_EXPENSE,
-  FETCH_API_SUCCESS, FINESH_EDIT, REMOVE_EXPENSE,
+  ADD_EXPENSE, EDIT_EXPENSE, FETCH_API_SUCCESS, FINESH_EDIT, REMOVE_EXPENSE,
+  SETUP_EDIT,
 } from '../actions';
 
 const INITIAL_STATE = {
@@ -9,6 +8,7 @@ const INITIAL_STATE = {
   expenses: [],
   editor: false,
   idToEdit: 0,
+  setupToEdit: false,
   ask: 0,
 };
 
@@ -39,7 +39,13 @@ const wallet = (state = INITIAL_STATE, action) => {
     return {
       ...state,
       editor: true,
+      setupToEdit: true,
       idToEdit: action.id,
+    };
+  case SETUP_EDIT:
+    return {
+      ...state,
+      setupToEdit: false,
     };
   case FINESH_EDIT:
     return {
@@ -47,8 +53,7 @@ const wallet = (state = INITIAL_STATE, action) => {
       editor: false,
       idToEdit: 0,
       expenses: state.expenses.map((expense) => (
-        expense.id === action.expense.id ? action.expense : expense
-      )),
+        expense.id === action.expense.id ? action.expense : expense)),
       ask: (state.ask - removeAsk(
         state.expenses.find((expense) => expense.id === action.expense.id),
       )) + action.ask,

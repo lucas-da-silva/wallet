@@ -6,6 +6,7 @@ export const ADD_EXPENSE = 'ADD_EXPENSE';
 export const EDIT_EXPENSE = 'EDIT_EXPENSE';
 export const FINESH_EDIT = 'FINESH_EDIT';
 export const REMOVE_EXPENSE = 'REMOVE_EXPENSE';
+export const SETUP_EDIT = 'SETUP_EDIT';
 
 export const emailChange = (email) => ({
   type: EMAIL_CHANGED,
@@ -21,6 +22,10 @@ export const addExpense = (expense, ask) => ({
 export const editExpense = (id) => ({
   type: EDIT_EXPENSE,
   id,
+});
+
+export const fineshSetupToEdit = () => ({
+  type: SETUP_EDIT,
 });
 
 export const fineshEditForm = (expense, ask) => ({
