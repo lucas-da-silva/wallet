@@ -1,7 +1,10 @@
+import { faPenToSquare, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { editExpense, removeExpense } from '../redux/actions';
+import '../styles/Table.css';
 
 class Table extends Component {
   editExpense = (id) => {
@@ -17,9 +20,9 @@ class Table extends Component {
   render() {
     const { expenses } = this.props;
     return (
-      <section>
+      <section className="table-container">
         <table>
-          <thead>
+          <thead className="table-header">
             <tr>
               <th>Descrição</th>
               <th>Tag</th>
@@ -32,7 +35,7 @@ class Table extends Component {
               <th>Editar/Excluir</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className="table-body">
             {
               expenses && expenses.map(({
                 id, description, tag, method, value, currency, exchangeRates,
@@ -41,7 +44,7 @@ class Table extends Component {
                 const exchangeRate = parseFloat(convertedCurrency.ask).toFixed(2);
                 const convertedValue = (value * convertedCurrency.ask).toFixed(2);
                 return (
-                  <tr key={ id }>
+                  <tr className="tr-body" key={ id }>
                     <td>{description}</td>
                     <td>{tag}</td>
                     <td>{method}</td>
@@ -54,16 +57,18 @@ class Table extends Component {
                       <button
                         data-testid="edit-btn"
                         type="button"
+                        className="btn btn-warning button-edit"
                         onClick={ () => this.editExpense(id) }
                       >
-                        Editar
+                        <FontAwesomeIcon icon={ faPenToSquare } />
                       </button>
                       <button
                         type="button"
                         data-testid="delete-btn"
+                        className="btn btn-danger"
                         onClick={ () => this.deleteExpense(id) }
                       >
-                        Excluir
+                        <FontAwesomeIcon className="trash-icon" icon={ faTrash } />
                       </button>
                     </td>
                   </tr>
