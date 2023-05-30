@@ -2,6 +2,8 @@
 
 ## Sobre o projeto
 
+https://github.com/lucas-da-silva/wallet/assets/104774396/a7c8c672-bd64-45e7-bf8a-4adf18c66f9e
+
 Aplicação para controle de gastos pessoais. O usuário pode adicionar, remover e editar gastos. A aplicação também mostra o total de gastos convertidos para real (BRL).
 
 ## Tecnologias utilizadas
