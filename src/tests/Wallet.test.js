@@ -6,9 +6,9 @@ import mockData from './helpers/mockData';
 import renderWithRouterAndRedux from './helpers/renderWith';
 import {
   currenciesValue, CURRENCY_INPUT, DESCRIPTION_INPUT, EMAIL_FIELD, EMAIL_INPUT,
-  expenseForTest01, HEADER_CURRENCY_FIELD, methodsValue, METHOD_INPUT, PASSWORD_INPUT,
-  tableHeaderList, tagsValue, TAG_INPUT, TOTAL_FIELD, VALID_EMAIL, VALID_PASSWORD,
-  VALUE_INPUT, expenseForTest02,
+  expenseForTest01, expenseForTest02, HEADER_CURRENCY_FIELD, methodsValue, METHOD_INPUT,
+  PASSWORD_INPUT, tableHeaderList, tagsValue, TAG_INPUT, TOTAL_FIELD, VALID_EMAIL,
+  VALID_PASSWORD, VALUE_INPUT,
 } from './utils/constants';
 
 describe('tests for Wallet component', () => {
@@ -101,7 +101,7 @@ describe('tests for Wallet component', () => {
     expect(await screen.findByRole('cell', { name: value })).toBeInTheDocument();
     expect(await screen.findByRole('cell', { name: description })).toBeInTheDocument();
 
-    userEvent.click(await screen.findByRole('button', { name: /excluir/i }));
+    userEvent.click(await screen.findByTestId('delete-btn'));
 
     expect(screen.queryByRole('cell', { name: value })).not.toBeInTheDocument();
     expect(screen.queryByRole('cell', { name: description })).not.toBeInTheDocument();
@@ -117,7 +117,10 @@ describe('tests for Wallet component', () => {
     expect(await screen.findByRole('cell', { name: value })).toBeInTheDocument();
     expect(await screen.findByRole('cell', { name: description })).toBeInTheDocument();
 
-    userEvent.click(screen.getByRole('button', { name: /editar/i }));
+    userEvent.click(screen.getByTestId('edit-btn'));
+
+    userEvent.clear(screen.getByTestId(VALUE_INPUT));
+    userEvent.clear(screen.getByTestId(DESCRIPTION_INPUT));
 
     userEvent.type(screen.getByTestId(VALUE_INPUT), expenseForTest02.value);
     userEvent.type(screen.getByTestId(DESCRIPTION_INPUT), expenseForTest02.description);
