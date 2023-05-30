@@ -25,11 +25,9 @@
     "stylelint-order": "5.0.0"
   },
   "scripts": {
-    "cy": "cypress run",
-    "cy:open": "cypress open --e2e --browser chrome",
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --watchAll=false",
     "eject": "react-scripts eject",
     "test-coverage": "react-scripts test --coverage --watchAll=false",
     "lint": "eslint --no-inline-config --no-error-on-unmatched-pattern -c .eslintrc.json . --ext .js, .jsx",
@@ -52,8 +50,6 @@
   },
   "devDependencies": {
     "@sheerun/mutationobserver-shim": "0.3.3",
-    "cypress": "10.4.0",
-    "cypress-multi-reporters": "1.6.1",
     "eslint-config-trybe-frontend": "^1.3",
     "jest-localstorage-mock": "2.4.21",
     "mocha": "10.0.0",
